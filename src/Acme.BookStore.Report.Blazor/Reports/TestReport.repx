@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="23.1.9.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v23.1, Version=23.1.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="TestReport" PageWidth="850" PageHeight="1100" Version="23.1" Font="Arial, 9.75pt">
+  <Bands>
+    <Item1 Ref="1" ControlType="TopMarginBand" Name="TopMargin" />
+    <Item2 Ref="2" ControlType="BottomMarginBand" Name="BottomMargin" />
+    <Item3 Ref="3" ControlType="DetailBand" Name="Detail">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRLabel" Name="xrLabel5" Multiline="true" Text="xrLabel5" TextAlignment="TopRight" SizeF="100,23" LocationFloat="316.6667,22.87499" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="5" EventName="BeforePrint" PropertyName="Text" Expression="[TemperatureF]" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="6" ControlType="XRLabel" Name="xrLabel4" Multiline="true" Text="xrLabel4" TextAlignment="TopRight" SizeF="100,23" LocationFloat="316.6667,67.00001" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="7" EventName="BeforePrint" PropertyName="Text" Expression="[TemperatureC]" />
+          </ExpressionBindings>
+        </Item2>
+        <Item3 Ref="8" ControlType="XRLabel" Name="xrLabel3" Multiline="true" Text="xrLabel3" SizeF="100,23" LocationFloat="183.3333,67.00001" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="9" EventName="BeforePrint" PropertyName="Text" Expression="[Summary]" />
+          </ExpressionBindings>
+        </Item3>
+        <Item4 Ref="10" ControlType="XRLabel" Name="xrLabel2" TextFormatString="{0:d}" Multiline="true" Text="xrLabel2" SizeF="100,23" LocationFloat="42.70833,67.00001" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="11" EventName="BeforePrint" PropertyName="Text" Expression="[Date]" />
+          </ExpressionBindings>
+        </Item4>
+        <Item5 Ref="12" ControlType="XRBarCode" Name="xrBarCode1" SizeF="200,75" LocationFloat="429.1667,14.99999" Padding="10,10,0,0,100">
+          <Symbology Ref="13" Name="Code128" />
+          <ExpressionBindings>
+            <Item1 Ref="14" EventName="BeforePrint" PropertyName="Text" Expression="[DataSource.RowCount]" />
+          </ExpressionBindings>
+        </Item5>
+        <Item6 Ref="15" ControlType="XRLabel" Name="xrLabel1" Multiline="true" Text="Hello Workd！！！" SizeF="133.3333,23" LocationFloat="42.70833,22.87499" Padding="2,2,0,0,100" />
+      </Controls>
+    </Item3>
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="16" ObjectType="DevExpress.DataAccess.ObjectBinding.ObjectDataSource,DevExpress.DataAccess.v23.1" Name="objectDataSource1" Base64="PE9iamVjdERhdGFTb3VyY2UgTmFtZT0ib2JqZWN0RGF0YVNvdXJjZTEiPjxEYXRhU291cmNlIFR5cGU9IkFjbWUuQm9va1N0b3JlLlJlcG9ydC5CbGF6b3IuV2VhdGhlckZvcmVjYXN0LCBBY21lLkJvb2tTdG9yZS5SZXBvcnQuQmxhem9yLCBWZXJzaW9uPTEuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbCIgLz48Q29uc3RydWN0b3IgLz48L09iamVjdERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

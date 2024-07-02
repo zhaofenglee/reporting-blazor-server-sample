@@ -1,5 +1,7 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
+using DevExpress.Drawing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,6 +36,11 @@ public class Program
                 .UseSerilog();
             await builder.AddApplicationAsync<ReportBlazorModule>();
             var app = builder.Build();
+            foreach (var file in Directory.GetFiles(@"wwwroot/fonts"))
+            {
+                DXFontRepository.Instance.AddFont(file);
+            }
+
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,9 @@ using Acme.BookStore.Report.Blazor.Menus;
 using Acme.BookStore.Report.EntityFrameworkCore;
 using Acme.BookStore.Report.Localization;
 using Acme.BookStore.Report.MultiTenancy;
+using DevExpress.Blazor.Reporting;
+using DevExpress.XtraReports.Web.Extensions;
+using DevExpress.XtraReports.Web.WebDocumentViewer;
 using OpenIddict.Validation.AspNetCore;
 using Volo.Abp;
 using Volo.Abp.Account.Web;
@@ -117,6 +121,20 @@ public class ReportBlazorModule : AbpModule
         // Add services to the container.
         context.Services.AddRazorComponents()
             .AddInteractiveServerComponents();
+
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            DevExpress.Drawing.Internal.DXDrawingEngine.ForceSkia();
+        }
+
+        context.Services.AddDevExpressBlazorReporting();//add
+        //context.Services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>();//add
+        context.Services.AddTransient<IWebDocumentViewerReportResolver, CustomWebDocumentViewerReportResolver>();//add
+
+        //See the https://go.devexpress.com/Jan2019_Deserialization_Issue.aspx article for additional information.
+        DevExpress.Utils.DeserializationSettings.RegisterTrustedClass(typeof(WeatherForecast));
+        DevExpress.Utils.DeserializationSettings.RegisterTrustedClass(typeof(WeatherForecastDto));
+
 
         ConfigureAuthentication(context);
         ConfigureUrls(configuration);
@@ -244,6 +262,8 @@ public class ReportBlazorModule : AbpModule
     {
         var env = context.GetEnvironment();
         var app = context.GetApplicationBuilder();
+
+        app.UseDevExpressBlazorReporting();//add
 
         app.UseAbpRequestLocalization();
 

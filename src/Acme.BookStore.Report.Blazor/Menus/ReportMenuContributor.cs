@@ -34,6 +34,24 @@ public class ReportMenuContributor : IMenuContributor
             )
         );
 
+        context.Menu.Items.Insert(
+            1,
+            new ApplicationMenuItem(
+                "Viewer",
+                l["Viewer"],
+                "/Viewer"
+            )
+        );
+
+        context.Menu.Items.Insert(
+            1,
+            new ApplicationMenuItem(
+                "ViewerAddParamKey",
+                l["ViewerAddParamKey"],
+                "/Viewer/1FE985CE-149F-4D46-A57F-5E3FE95AEF2F"
+            )
+        );
+
         if (MultiTenancyConsts.IsEnabled)
         {
             administration.SetSubItemOrder(TenantManagementMenuNames.GroupName, 1);

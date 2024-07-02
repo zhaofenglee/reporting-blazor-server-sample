@@ -1,4 +1,4 @@
-﻿namespace Acme.BookStore.Report.Blazor.Pages;
+﻿namespace Acme.BookStore.Report.Blazor.Components.Pages;
 
 public partial class Index
 {
